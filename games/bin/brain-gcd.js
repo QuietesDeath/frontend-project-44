@@ -15,7 +15,7 @@ const brainGcd = () => {
     console.log(`Hello, ${userName}!`);
     console.log('Find the greatest common divisor of given numbers.');
 
-    const rounds = 5; 
+    const rounds = 3; 
     for (let i = 0; i < rounds; i++) {
         const num1 = Math.floor(Math.random() * 100) + 1;
         const num2 = Math.floor(Math.random() * 100) + 1;

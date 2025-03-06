@@ -3,7 +3,8 @@
       "brain-games": "games/bin/brain-games.js",
       "brain-calc": "games/bin/brain-calc.js",
       "brain-gcd": "games/bin/brain-gcd.js",
-      "brain-even": "games/bin/brain-even.js"
+      "brain-even": "games/bin/brain-even.js",
+      "brain-progression": "games/bin/brain-progression.js"
     }
 
 } 
