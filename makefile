@@ -1,2 +1,2 @@
 lint:
-	npx eslint .
+	npx eslint 
