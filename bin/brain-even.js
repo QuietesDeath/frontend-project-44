@@ -1,35 +1,38 @@
 
-import playEvenGame from '../src/evenGame.js';
-import { greeting } from '../src/cli.js';
-
-greeting();
-playEvenGame();
-
 import readlineSync from 'readline-sync';
+import { randomInt } from 'crypto'; // Если ваш окружение недостаточно имеет crypto, просто используйте Math.random
+
+const getRandomNumber = () => randomInt(1, 100); // Случайное число от 1 до 99
 
 const isEven = (num) => num % 2 === 0;
 
-const playEvenGame = () => {
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
+const startGame = () => {
+    console.log('Welcome to the Brain Games!');
+    const userName = readlineSync.question('May I have your nickname? ');
+    console.log(`Hello, ${userName}!`);
+    console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
-  for (let i = 0; i < 3; i += 1) {
-    const randomNum = Math.floor(Math.random() * 100);
-    console.log(`Question: ${randomNum}`);
+    let correctAnswers = 0;
 
-    const userAnswer = readlineSync.question('Your answer: ');
+    while (correctAnswers < 3) {
+        const question = getRandomNumber();
+        console.log(`Question: ${question}`);
 
-    const correctAnswer = isEven(randomNum) ? 'yes' : 'no';
+        const userAnswer = readlineSync.question('Your answer: ').toLowerCase();
 
-    if (userAnswer !== correctAnswer) {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-      console.log("Let's try again + name +!");
-      return;
+        const correctAnswer = isEven(question) ? 'yes' : 'no';
+
+        if (userAnswer !== correctAnswer) {
+            console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+            console.log(`Let's try again, ${userName}!`);
+            return;
+        }
+
+        console.log('Correct!');
+        correctAnswers += 1;
     }
 
-    console.log('Correct!');
-  }
-
-  console.log('Congratulations, you won!');
+    console.log(`Congratulations, ${userName}!`);
 };
 
-export default playEvenGame;
+startGame();
