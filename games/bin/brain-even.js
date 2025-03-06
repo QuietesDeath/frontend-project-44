@@ -1,8 +1,9 @@
 
 import readlineSync from 'readline-sync';
-import { randomInt } from 'crypto'; // Если ваш окружение недостаточно имеет crypto, просто используйте Math.random
 
-const getRandomNumber = () => randomInt(1, 100); // Случайное число от 1 до 99
+import { randomInt } from 'crypto';
+
+const getRandomNumber = () => randomInt(1, 100);
 
 const isEven = (num) => num % 2 === 0;
 
